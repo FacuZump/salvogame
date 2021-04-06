@@ -1,41 +1,40 @@
 package com.codeoftheweb.salvo;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import static java.util.stream.Collectors.toList;
 
 @Entity
-public class Player {
+public class Game {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
     private long id;
 
-    private String userName;
+    public LocalDateTime creationDate;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "player")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "game")
     private Set<GamePlayer> gamePlayers = new HashSet<>();
 
-    public Player() {
+    public Game() {
     }
 
-    public Player(String userName) {
-        this.userName = userName;
+    public Game(LocalDateTime creationDate) {
+        this.creationDate = creationDate;
     }
 
     public void AddGamePlayer(GamePlayer gamePlayer){
-        gamePlayer.setPlayer(this);
+        gamePlayer.setGame(this);
         gamePlayers.add(gamePlayer);
     }
 
-    @JsonIgnore
-    public List<Game> getGames() {
-        return gamePlayers.stream().map(sub -> sub.getGame()).collect(toList());
+    public List<Player> getPlayers() {
+        return gamePlayers.stream().map(sub -> sub.getPlayer()).collect(toList());
     }
 
     public long getId() {
@@ -46,12 +45,12 @@ public class Player {
         this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public LocalDateTime getCreationDate() {
+        return creationDate;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setCreationDate(LocalDateTime creationDate) {
+        this.creationDate = creationDate;
     }
 
     public Set<GamePlayer> getGamePlayers() {
@@ -61,4 +60,5 @@ public class Player {
     public void setGamePlayers(Set<GamePlayer> gamePlayers) {
         this.gamePlayers = gamePlayers;
     }
+
 }
