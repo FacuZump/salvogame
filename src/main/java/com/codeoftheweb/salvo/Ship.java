@@ -9,7 +9,7 @@ import java.util.List;
 @Entity
 public class Ship {
 
-    private String Type;
+    private String type;
 
     @ElementCollection
     @Column(name="location")
@@ -27,17 +27,17 @@ public class Ship {
     public Ship() {}
 
     public Ship(String shipType, GamePlayer gamePlayer, List<String> location) {
-        this.Type = shipType;
+        this.type = shipType;
         this.gamePlayer = gamePlayer;
         this.location = location;
     }
 
     public String getType() {
-        return Type;
+        return type;
     }
 
     public void setType(String type) {
-        this.Type = type;
+        this.type = type;
     }
 
     public List<String> getLocation() {
@@ -63,5 +63,4 @@ public class Ship {
     public void setId(long id) {
         this.id = id;
     }
-
 }
