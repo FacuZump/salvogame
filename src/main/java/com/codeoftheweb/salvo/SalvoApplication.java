@@ -4,6 +4,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Set;
@@ -27,28 +28,26 @@ public class SalvoApplication {
             Player player2 = new Player("kim_bauer@gmail.com");
             Player player3 = new Player("t.almeida@ctu.gov");
 
-            GamePlayer gamePlayer0 = new GamePlayer(LocalDateTime.now(),game0, player0);
-            GamePlayer gamePlayer1 = new GamePlayer(LocalDateTime.now(),game0, player1);
-            GamePlayer gamePlayer2 = new GamePlayer(LocalDateTime.now(),game1, player2);
-            GamePlayer gamePlayer3 = new GamePlayer(LocalDateTime.now(),game1, player3);
-            GamePlayer gamePlayer4 = new GamePlayer(LocalDateTime.now(),game2, player2);
+            GamePlayer gamePlayer0 = new GamePlayer(LocalDateTime.now(), game0, player0);
+            GamePlayer gamePlayer1 = new GamePlayer(LocalDateTime.now(), game0, player1);
+            GamePlayer gamePlayer2 = new GamePlayer(LocalDateTime.now(), game1, player2);
+            GamePlayer gamePlayer3 = new GamePlayer(LocalDateTime.now(), game1, player3);
+            GamePlayer gamePlayer4 = new GamePlayer(LocalDateTime.now(), game2, player2);
 
 
-            Ship ship0 = new Ship("Carrier", gamePlayer0, List.of("C1","C2","C3","C4","C5"));
-            Ship ship1 = new Ship("Battleship", gamePlayer0, List.of("B7","C7","D7","E7"));
-            Ship ship2 = new Ship("Submarine", gamePlayer0, List.of("F2","F3","F4"));
-            Ship ship3 = new Ship("Destroyer", gamePlayer0, List.of("H6","I6","J6"));
-            Ship ship4 = new Ship("Patrol Boat", gamePlayer0, List.of("E9","E10"));
-            Ship ship5 = new Ship("Carrier", gamePlayer1, List.of("C1","C2","C3","C4","C5"));
-            Ship ship6 = new Ship("Battleship", gamePlayer1, List.of("I1","I2","I3","I4"));
-            Ship ship7 = new Ship("Submarine", gamePlayer1, List.of("F2","F3","F4"));
-            Ship ship8 = new Ship("Destroyer", gamePlayer1, List.of("D5","E5","F5"));
-            Ship ship9 = new Ship("Patrol Boat", gamePlayer1, List.of("J8","J9"));
+            Ship ship0 = new Ship("Carrier", gamePlayer0, List.of("C1", "C2", "C3", "C4", "C5"));
+            Ship ship1 = new Ship("Battleship", gamePlayer0, List.of("B7", "C7", "D7", "E7"));
+            Ship ship2 = new Ship("Submarine", gamePlayer0, List.of("F2", "F3", "F4"));
+            Ship ship3 = new Ship("Destroyer", gamePlayer0, List.of("H6", "I6", "J6"));
+            Ship ship4 = new Ship("Patrol Boat", gamePlayer0, List.of("E9", "E10"));
+            Ship ship5 = new Ship("Carrier", gamePlayer1, List.of("C1", "C2", "C3", "C4", "C5"));
+            Ship ship6 = new Ship("Battleship", gamePlayer1, List.of("I1", "I2", "I3", "I4"));
+            Ship ship7 = new Ship("Submarine", gamePlayer1, List.of("F2", "F3", "F4"));
+            Ship ship8 = new Ship("Destroyer", gamePlayer1, List.of("D5", "E5", "F5"));
+            Ship ship9 = new Ship("Patrol Boat", gamePlayer1, List.of("J8", "J9"));
 
-            Salvo salvo0 = new Salvo(1, gamePlayer0, List.of("C1","F6","H8"));
-            Salvo salvo1 = new Salvo(1, gamePlayer1, List.of("B7","C7","D7"));
-
-
+            Salvo salvo0 = new Salvo(1, gamePlayer0, List.of("C1", "F6", "H8"));
+            Salvo salvo1 = new Salvo(1, gamePlayer1, List.of("B7", "C7", "D7"));
 
 
             playerRepository.save(player0);
