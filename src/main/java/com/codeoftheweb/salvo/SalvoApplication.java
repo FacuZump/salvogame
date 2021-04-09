@@ -7,7 +7,6 @@ import org.springframework.context.annotation.Bean;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Set;
 
 @SpringBootApplication
 public class SalvoApplication {
@@ -34,7 +33,6 @@ public class SalvoApplication {
             GamePlayer gamePlayer3 = new GamePlayer(LocalDateTime.now(), game1, player3);
             GamePlayer gamePlayer4 = new GamePlayer(LocalDateTime.now(), game2, player2);
 
-
             Ship ship0 = new Ship("Carrier", gamePlayer0, List.of("C1", "C2", "C3", "C4", "C5"));
             Ship ship1 = new Ship("Battleship", gamePlayer0, List.of("B7", "C7", "D7", "E7"));
             Ship ship2 = new Ship("Submarine", gamePlayer0, List.of("F2", "F3", "F4"));
@@ -43,12 +41,15 @@ public class SalvoApplication {
             Ship ship5 = new Ship("Carrier", gamePlayer1, List.of("C1", "C2", "C3", "C4", "C5"));
             Ship ship6 = new Ship("Battleship", gamePlayer1, List.of("I1", "I2", "I3", "I4"));
             Ship ship7 = new Ship("Submarine", gamePlayer1, List.of("F2", "F3", "F4"));
-            Ship ship8 = new Ship("Destroyer", gamePlayer1, List.of("D5", "E5", "F5"));
+            Ship ship8 = new Ship("Destroyer", gamePlayer1, List.of("A9", "B9", "C9"));
             Ship ship9 = new Ship("Patrol Boat", gamePlayer1, List.of("J8", "J9"));
 
-            Salvo salvo0 = new Salvo(1, gamePlayer0, List.of("C1", "F6", "H8"));
-            Salvo salvo1 = new Salvo(1, gamePlayer1, List.of("B7", "C7", "D7"));
-
+            Salvo salvo0 = new Salvo(1, gamePlayer0, List.of("C1", "D3"));
+            Salvo salvo1 = new Salvo(2, gamePlayer0, List.of("E7", "G2"));
+            Salvo salvo2 = new Salvo(3, gamePlayer0, List.of("J9"));
+            Salvo salvo3 = new Salvo(1, gamePlayer1, List.of("B7", "C3"));
+            Salvo salvo4 = new Salvo(2, gamePlayer1, List.of("E8", "G3"));
+            Salvo salvo5 = new Salvo(3, gamePlayer1, List.of("H7"));
 
             playerRepository.save(player0);
             playerRepository.save(player1);
@@ -78,6 +79,10 @@ public class SalvoApplication {
 
             salvoRepository.save(salvo0);
             salvoRepository.save(salvo1);
+            salvoRepository.save(salvo2);
+            salvoRepository.save(salvo3);
+            salvoRepository.save(salvo4);
+            salvoRepository.save(salvo5);
 
         };
 

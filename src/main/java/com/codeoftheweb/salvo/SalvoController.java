@@ -71,9 +71,9 @@ public class SalvoController {
 
     private Map<String, Object> SalvoDTO(Salvo salvo) {
         Map<String, Object> dto = new LinkedHashMap<String, Object>();
-        dto.put("gamePlayer", salvo.getGamePlayer().getPlayer().getId());
+        dto.put("player", salvo.getGamePlayer().getPlayer().getId());
         dto.put("turn", salvo.getTurn());
-        dto.put("location", salvo.getSalvoLocation());
+        dto.put("locations", salvo.getSalvoLocations());
         return dto;
     }
 

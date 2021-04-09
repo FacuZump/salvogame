@@ -1,46 +1,54 @@
-body{
-        text-align: center;
-        background: url("shipbackground.jpg") no-repeat center center fixed;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
+body {
+    text-align: center;
+    background: url("shipbackground.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
-#players{
-color: white
+#players {
+    color: white
 }
 
-#player1{
-opacity: 0.7;
-width: 500px;
-background-color: #FF8C00;
+#player1 {
+    opacity: 0.8;
+    width: 500px;
+    background-color: #FF8C00;
+    border-color: white;
 }
 
-#player2{
-opacity: 0.7;
-width: 500px;
-background-color: #FF4500;
+#player2 {
+    opacity: 0.8;
+    width: 500px;
+    background-color: #FF4500;
+    border-color: white;
 }
 
-
-.ship0{
+.ship0 {
     background-color: #FFFF00 !important;
 }
 
-.ship1{
-background-color: #32CD32 !important;
+.ship1 {
+    background-color: #32CD32 !important;
 }
 
-.ship2{
-background-color: #20B2AA !important;
+.ship2 {
+    background-color: #20B2AA !important;
 }
 
-.ship3{
-background-color: #000000 !important;
+.ship3 {
+    background-color: #000000 !important;
 }
 
-.ship4{
-background-color: #FFFFFF !important;
+.ship4 {
+    background-color: #FFFFFF !important;
 }
 
+.salvo {
+    background-color: #0d6efd !important;
+}
+
+.hitSalvo {
+    background-color: red !important;
+}

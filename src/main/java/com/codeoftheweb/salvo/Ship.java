@@ -5,20 +5,19 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-
 @Entity
 public class Ship {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
+    @GenericGenerator(name = "native", strategy = "native")
+    private long id;
 
     private String type;
 
     @ElementCollection
     @Column(name="location")
     private List<String> location = new ArrayList<>();
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
-    @GenericGenerator(name = "native", strategy = "native")
-    private long id;
 
     @ManyToOne
     @JoinColumn(name = "gamePlayer_id")
@@ -63,4 +62,5 @@ public class Ship {
     public void setId(long id) {
         this.id = id;
     }
+
 }

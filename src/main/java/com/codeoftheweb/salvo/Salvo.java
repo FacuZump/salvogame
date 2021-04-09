@@ -5,21 +5,19 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
 @Entity
 public class Salvo {
-
-    private Integer turn;
-
-    @ElementCollection
-    @Column(name="salvoLocation")
-    private List<String> salvoLocation = new ArrayList<>();
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
     private long id;
+
+    private Integer turn;
+
+    @ElementCollection
+    @Column(name="salvoLocation")
+    private List<String> salvoLocations = new ArrayList<>();
 
     @ManyToOne
     @JoinColumn(name = "gamePlayer_id")
@@ -27,10 +25,10 @@ public class Salvo {
 
     public Salvo() {}
 
-    public Salvo(Integer turn, GamePlayer gamePlayer, List<String> salvoLocation) {
+    public Salvo(Integer turn, GamePlayer gamePlayer, List<String> salvoLocations) {
         this.turn = turn;
         this.gamePlayer = gamePlayer;
-        this.salvoLocation = salvoLocation;
+        this.salvoLocations = salvoLocations;
     }
 
     public Integer getTurn() {
@@ -41,12 +39,12 @@ public class Salvo {
         this.turn = turn;
     }
 
-    public List<String> getSalvoLocation() {
-        return salvoLocation;
+    public List<String> getSalvoLocations() {
+        return salvoLocations;
     }
 
-    public void setSalvoLocation(List<String> salvoLocation) {
-        this.salvoLocation = salvoLocation;
+    public void setSalvoLocations(List<String> salvoLocations) {
+        this.salvoLocations = salvoLocations;
     }
 
     public long getId() {
@@ -64,4 +62,5 @@ public class Salvo {
     public void setGamePlayer(GamePlayer gamePlayer) {
         this.gamePlayer = gamePlayer;
     }
+
 }
