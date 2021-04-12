@@ -34,7 +34,6 @@ public class Score {
     }
 
     public GamePlayer(LocalDateTime localDate, Game game, Player player) {
-        this.LocalDate = localDate;
         this.player = player;
         this.game = game;
     }
