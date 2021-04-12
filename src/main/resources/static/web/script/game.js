@@ -29,7 +29,7 @@ var app = new Vue({
         asignShipLocations: function () {
             for (var i = 0; i < app.games.ships.length; i++) {
                 for (var j = 0; j < app.games.ships[i].location.length; j++) {
-                    document.getElementById(app.games.ships[i].location[j]).className = "ship" + i;
+                    document.getElementById(app.games.ships[i].location[j]).className = app.games.ships[i].type.toLowerCase().replace(" ","");
                 }
             }
         },

@@ -25,23 +25,23 @@ body {
     border-color: white;
 }
 
-.ship0 {
+.carrier {
     background-color: #FFFF00 !important;
 }
 
-.ship1 {
+.battleship {
     background-color: #32CD32 !important;
 }
 
-.ship2 {
+.submarine {
     background-color: #20B2AA !important;
 }
 
-.ship3 {
+.destroyer {
     background-color: #000000 !important;
 }
 
-.ship4 {
+.patrolboat {
     background-color: #FFFFFF !important;
 }
 
