@@ -2,9 +2,7 @@ package com.codeoftheweb.salvo;
 
 import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
-import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.Set;
+
 
 @Entity
 public class Score {
@@ -14,37 +12,23 @@ public class Score {
     @GenericGenerator(name = "native", strategy = "native")
     private long id;
 
-    private Score Integer;
+    private Integer score;
 
     @ManyToOne
     @JoinColumn(name = "player_id")
     public Player player;
 
     @ManyToOne
-    @JoinColumn(name = "game_id")
+    @JoinColumn(name = "game")
     public Game game;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "gamePlayer")
-    private Set<Ship> ships = new HashSet<>();
+    public Score() {}
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "gamePlayer")
-    private Set<Salvo> salvoes = new HashSet<>();
-
-    public GamePlayer() {
-    }
-
-    public GamePlayer(LocalDateTime localDate, Game game, Player player) {
+    public Score(long id, Integer score, Player player, Game game) {
+        this.id = id;
+        this.score = score;
         this.player = player;
         this.game = game;
-    }
-
-    public void AddShip(Ship ship) {
-        ship.setGamePlayer(this);
-        ships.add(ship);
-    }
-
-    public LocalDateTime getLocalDate() {
-        return LocalDate;
     }
 
     public long getId() {
@@ -55,8 +39,12 @@ public class Score {
         this.id = id;
     }
 
-    public void setLocalDate(LocalDateTime localDate) {
-        LocalDate = localDate;
+    public Integer getScore() {
+        return score;
+    }
+
+    public void setScore(Integer score) {
+        this.score = score;
     }
 
     public Player getPlayer() {
@@ -74,25 +62,4 @@ public class Score {
     public void setGame(Game game) {
         this.game = game;
     }
-
-    public Set<Ship> getShip() {
-        return ships;
-    }
-
-    public void setShips(Set<Ship> ships) {
-        this.ships = ships;
-    }
-
-    public Set<Ship> getShips() {
-        return ships;
-    }
-
-    public Set<Salvo> getSalvos() {
-        return salvoes;
-    }
-
-    public void setSalvos(Set<Salvo> salvos) {
-        this.salvoes = salvos;
-    }
 }
-

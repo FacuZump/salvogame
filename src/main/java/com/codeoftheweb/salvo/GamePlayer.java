@@ -21,7 +21,7 @@ public class GamePlayer {
     public Player player;
 
     @ManyToOne
-    @JoinColumn(name = "game_id")
+    @JoinColumn(name = "game")
     public Game game;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "gamePlayer")
